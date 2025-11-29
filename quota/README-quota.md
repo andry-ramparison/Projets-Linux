@@ -37,11 +37,13 @@ sudo crontab -e
 
 Ajouter les lignes suivantes :
 
+```bash
 # Vérification hebdomadaire des quotas
 0 8 * * 0 /chemin/vers/quota_alerte.sh
 
 # Vérification quotidienne si un utilisateur a dépassé le soft limit
 0 8 * * * [ -f /tmp/quota_alert_flag ] && /chemin/vers/quota_alerte.sh
+```
 
     La première ligne exécute le script chaque semaine pour vérifier tous les quotas.
 
@@ -52,5 +54,7 @@ Ajouter les lignes suivantes :
     Assurez-vous que l’adresse email d’alerte est correctement définie dans quota_alerte.sh.
 
     Les scripts doivent être exécutables :
-
+    
+```bash
 chmod +x setup_home_quota.sh quota_alerte.sh
+```
